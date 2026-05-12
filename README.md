@@ -1,41 +1,65 @@
-# 🎭 RoleplayGenerator v1.0
+# RoleplayGenerator v1.2
 
-**Advanced Custom Roleplay Generator**  
-**Model:** Custom Precision Mode (inspired by HumanBodyRemodeler v1.9)  
-**Base Framework:** p-e-w/waidrin (state machine + LLM)
+**Advanced Modular Roleplay Engine** with Memory, Emotional Physics, Behavior Trees, and Hybrid AI.
 
-## Features
-- User-defined parameters (Character, Scenario, Style, Dynamics)
-- Support for % and fixed deltas
-- "Roleplay Physics" (Emotional Intensity, Tension, Pacing, Power Dynamic)
-- Advanced Hair/Skin Physics analog for roleplay
-- Web control panel (HTML/JS)
-- CLI support
-- Ready for integration with waidrin / Risuai / custom LLM
+A powerful Python framework for building deep, emotionally aware, and dynamic roleplay experiences.
 
+## ✨ Key Features (v1.2)
+
+- **MemorySystem v1.2** — Emotional tagging, relationship tracking, decay, clustering, and smart retrieval
+- **RoleplayEngine v3** — Central orchestrator with plugin system, hooks, and component registry
+- **Advanced Roleplay Physics** — Emotional state (tension, intensity, arousal), relationship influence
+- **Behavior Trees** — Structured NPC behaviors with visualization & debugging tools
+- **Hybrid AI** — Utility-based decision making + Behavior Tree execution
+- **MemoryAware Prompt Builder** — Automatic injection of memories, relationships, and emotional state
+- **WaidrinAdapter v2** — Deep integration support for p-e-w/waidrin
+
+## Architecture
+RoleplayGenerator/
+├── RoleplayEngine          ← Central orchestrator (v3)
+├── MemorySystem v1.2       ← Emotional + relational memory
+├── AdvancedRoleplayPhysics ← Emotional & relationship dynamics
+├── BehaviorTree            ← Structured execution
+├── Hybrid AI               ← Utility AI + Behavior Trees
+├── MemoryAwarePromptBuilder
+└── WaidrinAdapter v2
 ## Quick Start
 
-```bash
-# Basic mode
-python cli.py
+```python
+from roleplay_engine import RoleplayEngine, RoleplayConfig
 
-# With Waidrin integration (recommended)
-python cli.py --use-waidrin
+config = RoleplayConfig(
+    character_name="Elara",
+    scenario="A mysterious encounter in a fantasy tavern",
+    debug=True
+)
 
-# Using generators
-python -c "
-from generators.character_generator import CharacterGenerator
-from generators.dialogue_generator import DialogueGenerator
-cg = CharacterGenerator()
-params = cg.generate_from_preset('dominant_vampire')
-dg = DialogueGenerator(params)
-print(dg.generate_response('Hello Elias...'))
-"
-```
+engine = RoleplayEngine(config)
 
-## Recommended GitHub Repos (2026)
-- **p-e-w/waidrin** → https://github.com/p-e-w/waidrin (Best core engine - state machine)
-- **kwaroran/Risuai** → https://github.com/kwaroran/Risuai (Best frontend)
-- **character-ai/prompt-poet** → https://github.com/character-ai/prompt-poet (Dynamic prompts)
-- **UKPLab/llm-roleplay** → https://github.com/UKPLab/llm-roleplay (Persona-based dialogues)
-- **InteractiveNLP-Team/RoleLLM-public** → https://github.com/InteractiveNLP-Team/RoleLLM-public (Advanced roleplay framework)
+# Add important memory
+engine.add_memory("Elara is suspicious of strangers", importance=7.0, emotion="suspicion")
+
+# Run interaction
+result = engine.step("Hello there, stranger...")
+print(result["response"])
+Project Structure
+File
+Purpose
+memory.py
+MemorySystem v1.2
+roleplay_engine.py
+Main unified engine
+behavior_tree.py
+Behavior Tree system
+hybrid_ai.py
+Hybrid AI (Utility + BT)
+waidrin_adapter_v2.py
+Waidrin integration
+prompt_poet_v2.py
+Enhanced prompt builder
+Recommended Ecosystem
+p-e-w/waidrin — Primary state machine engine
+character-ai/prompt-poet — Prompt templating inspiration
+Status
+Version: v1.2 (Major Architecture Upgrade)
+Date: May 2026
