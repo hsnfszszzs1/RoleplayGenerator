@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>RoleplayGenerator v1.0</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 RoleplayGenerator v1.0</h1>
+        <p class="subtitle">Custom Precision Mode • Powered by waidrin + Prompt Poet</p>
+
+        <div class="grid">
+            <!-- Character -->
+            <div class="card">
+                <h2>Character</h2>
+                <label>Name: <input type="text" id="char_name" value="Elias Voss"></label>
+                <label>Personality: <input type="text" id="personality" value="dominant, teasing, sarcastic"></label>
+                <label>Speech Style: <input type="text" id="speech" value="confident, low, vulgar"></label>
+            </div>
+
+            <!-- Scenario -->
+            <div class="card">
+                <h2>Scenario</h2>
+                <label>Setting: <input type="text" id="setting" value="rainy penthouse"></label>
+                <label>Mood: <input type="text" id="mood" value="intense and seductive"></label>
+                <label>Relationship: <input type="text" id="relationship" value="enemies to lovers"></label>
+            </div>
+
+            <!-- Roleplay Physics -->
+            <div class="card">
+                <h2>Roleplay Physics</h2>
+                <label>Emotional Intensity: <input type="range" id="intensity" min="0" max="100" value="75"> <span id="intensity_val">75</span>%</label>
+                <label>Sexual Tension: <input type="range" id="tension" min="0" max="100" value="65"> <span id="tension_val">65</span>%</label>
+                <label>Power Dynamic: 
+                    <select id="power">
+                        <option value="dominant">Dominant</option>
+                        <option value="balanced">Balanced</option>
+                        <option value="submissive">Submissive</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+
+        <button onclick="generatePrompt()" class="btn-primary">Generate Prompt</button>
+
+        <div id="output" class="output-box" style="display:none;">
+            <h3>Generated System Prompt</h3>
+            <pre id="prompt_output"></pre>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
